@@ -1,0 +1,8 @@
+resource:
+  path: C:/test/
+
+local:
+  dir: C:/test/
+
+upload:
+  path: /upload/**
