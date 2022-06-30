@@ -12,7 +12,7 @@
 
             $(document).on("mouseover",".thumbnail",function(e){ //마우스 오버시
 
-                $("body").append("<p id='preview'><img src='file://C:/test/emp.png' width='400px' /></p>"); //보여줄 이미지를 선언
+                $("body").append("<p id='preview'><img src='../img/emp.png' width='400px' /></p>"); //보여줄 이미지를 선언
                 $("#preview")
                     .css("top",(e.pageY - xOffset) + "px")
                     .css("left",(e.pageX + yOffset) + "px")

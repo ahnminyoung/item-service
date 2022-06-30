@@ -26,13 +26,23 @@ public class testController {
         List<String> listMap = new ArrayList<>();
         Map<String, Integer> map = new HashMap<>();
 
-        for(int i = 0; i < 3000; i++){
+        for(int i = 0; i < 10000; i++){
             listMap.add("0"+i);
             System.out.println("listMap!!! = " + listMap.get(i));
         }
         System.out.println("listMap!!!??? = " + listMap.size());
         System.out.println("listMap??? = " + listMap);
         mav.addObject("list", listMap);
+
+        List<String> listMap1 = new ArrayList<>();
+
+        for (int a = 0; a < 20000; a++) {
+            if (a % 2 == 0) {
+
+            }
+        }
+
+
         return mav;
     }
 
