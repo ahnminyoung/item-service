@@ -27,18 +27,19 @@ public class testController {
         Map<String, Integer> map = new HashMap<>();
 
         for(int i = 0; i < 10000; i++){
-            listMap.add("0"+i);
-            System.out.println("listMap!!! = " + listMap.get(i));
+            listMap.add(String.valueOf(i));
+//            System.out.println("listMap!!! = " + listMap.get(i));
         }
         System.out.println("listMap!!!??? = " + listMap.size());
         System.out.println("listMap??? = " + listMap);
         mav.addObject("list", listMap);
 
-        List<String> listMap1 = new ArrayList<>();
+        List<Integer> listMap1 = new ArrayList<>();
 
         for (int a = 0; a < 20000; a++) {
-            if (a % 2 == 0) {
-
+            if (a % 4 == 0) {
+                listMap.add(String.valueOf(a));
+                System.out.println("listMap1!!!=" + listMap.get(a));
             }
         }
 
