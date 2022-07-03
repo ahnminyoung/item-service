@@ -26,7 +26,7 @@ public class testController {
         List<String> listMap = new ArrayList<>();
         Map<String, Integer> map = new HashMap<>();
 
-        for(int i = 0; i < 10000; i++){
+        for (int i = 0; i < 10000; i++) {
             listMap.add(String.valueOf(i));
 //            System.out.println("listMap!!! = " + listMap.get(i));
         }
@@ -47,4 +47,10 @@ public class testController {
         return mav;
     }
 
+    @GetMapping("chView")
+    public ModelAndView chView(){
+        ModelAndView mav = new ModelAndView("test/chView");
+
+        return mav;
+    }
 }
