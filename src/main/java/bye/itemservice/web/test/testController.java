@@ -1,5 +1,6 @@
 package bye.itemservice.web.test;
 
+import bye.itemservice.web.file.FileService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -19,6 +20,8 @@ import java.util.Map;
 @RequestMapping("/test")
 @RequiredArgsConstructor
 public class testController {
+
+    private FileService fileService;
 
     @GetMapping("/testView")
     public ModelAndView testView() {
