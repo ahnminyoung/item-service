@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" th:src="@{/echart/echarts.min.js}"></script>
+    <script type="text/javascript" th:src="@{/echart1/echarts.js}"></script>
+    <script type="text/javascript" th:src="@{/jquery/jquery-3.6.0.min.js}"></script>
+</head>
+<script>
+
+    $(function(){
+
+        var num = [];
+
+        for(var i = 0; i < 10000; i++){
+            var randomNum = Math.floor(Math.random() * 9999) + 1;
+            num.push(randomNum);
+        }
+
+        var num1 = [];
+
+        for(var j = 0; j < 10000; j++){
+            var randomNum1 = Math.floor(Math.random() * 9999) + 1;
+            num1.push(randomNum1);
+        }
+
+        var num2 = [];
+
+        for(var k = 0; k < 10000; k++){
+            var randomNum2 = Math.floor(Math.random() * 9999) + 1;
+            num2.push(randomNum2);
+        }
+        var num3 = [];
+
+        for(var l = 0; l < 10000; l++){
+            var randomNum3 = Math.floor(Math.random() * 9999) + 1;
+            num3.push(randomNum3);
+        }
+        var num4 = [];
+
+        for(var m = 0; m < 10000; m++){
+            var randomNum4 = Math.floor(Math.random() * 9999) + 1;
+            num4.push(randomNum4);
+        }
+
+        var num5 = [];
+        for(var n = 0; n < 20000; n++){
+            num5.push(n);
+        }
+
+        var num6 = [];
+        for(var o = 0; o < 15000; o++){
+            num6.push(o);
+        }
+
+        console.log("12", num);
+
+        // const count = 5e5
+        let time = +new Date(2021, 0, 1);
+        const categoryData = [];
+        const valueData = [];
+        for (let i = 0; i < 15000; i++) {
+            categoryData.push(
+                echarts.format.formatTime('yyyy-MM-dd\nhh:mm:ss', time, false)
+            );
+        }
+        console.log("날짜", categoryData);
+
+
+        var chartDom = document.getElementById('main');
+        var myChart = echarts.init(chartDom);
+        var option;
+
+        option = {
+            title: {
+                text: 'Stacked Line'
+            },
+            tooltip: {
+                trigger: 'axis'
+            },
+            legend: {
+                data: ['Email', 'Union Ads', 'Video Ads', 'Direct', 'Search Engine']
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '9%',
+                containLabel: true
+            },
+            dataZoom: [
+                {
+                    type: 'inside'
+                },
+                {
+                    type: 'slider',
+                    start: 0,
+                    end: 10
+                }
+            ],
+            toolbox: {
+                feature: {
+                    saveAsImage: {}
+                }
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+            },
+            yAxis: {
+                type: 'value'
+            },
+            series: [
+                {
+                    name: 'Email',
+                    type: 'line',
+                    stack: 'Total',
+                    data: [120, 132, 101, 134, 90, 230, 210]
+                },
+                {
+                    name: 'Union Ads',
+                    type: 'line',
+                    stack: 'Total',
+                    data: [220, 182, 191, 234, 290, 330, 310]
+                },
+                {
+                    name: 'Video Ads',
+                    type: 'line',
+                    stack: 'Total',
+                    data: [150, 232, 201, 154, 190, 330, 410]
+                },
+                {
+                    name: 'Direct',
+                    type: 'line',
+                    stack: 'Total',
+                    data: [320, 332, 301, 334, 390, 330, 320]
+                },
+                {
+                    name: 'Search Engine',
+                    type: 'line',
+                    stack: 'Total',
+                    data: [820, 932, 901, 934, 1290, 1330, 1320]
+                }
+            ]
+        };
+
+        option && myChart.setOption(option);
+    });
+
+</script>
+<body>
+<div id="main" style="width:500px;height:500px;">
+</div>
+</body>
+
+
+</html>

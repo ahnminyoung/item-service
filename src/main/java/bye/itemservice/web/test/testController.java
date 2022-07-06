@@ -56,4 +56,49 @@ public class testController {
 
         return mav;
     }
+
+    /**
+     * 5라인 정적차트(스크롤) 기본
+     * @return
+     */
+    @GetMapping("chView1")
+    public ModelAndView chView1(){
+        ModelAndView mav = new ModelAndView("test/chView1");
+        System.out.println("chView1진입!!!!");
+        return mav;
+    }
+
+    /**
+     *  5 line 정적차트 (스크롤) 응용
+     * @return
+     */
+    @GetMapping("5line")
+    public ModelAndView chView2(){
+        ModelAndView mav = new ModelAndView("test/5line");
+        System.out.println("5라인 정적 차트 진입!!!!");
+        return mav;
+    }
+
+    /**
+     *  실시간 차트
+     * @return
+     */
+    @GetMapping("realTime")
+    public ModelAndView realTime(){
+        ModelAndView mav = new ModelAndView("test/realTime");
+        System.out.println("실시간 챠트 진입!!!!");
+        return mav;
+    }
+
+    /**
+     *  실시간 차트
+     * @return
+     */
+    @GetMapping("dynamic")
+    public ModelAndView dynamic(){
+        ModelAndView mav = new ModelAndView("test/dynamic");
+        System.out.println("실시간 챠트 진입!!!!");
+        return mav;
+    }
+
 }
