@@ -44,8 +44,9 @@
         }
 
         var num5 = [];
-        for(var n = 0; n < 20000; n++){
-            num5.push(n);
+        for(var n = 0; n < 10000; n++){
+            var randomNum5 = Math.floor(Math.random() * 9999) + 1;
+            num5.push(randomNum5);
         }
 
         var num6 = [];
@@ -113,34 +114,40 @@
             },
             series: [
                 {
-                    name: 'Email',
+                    name: '테스트1',
                     type: 'line',
                     stack: 'Total',
                     data: num
                 },
                 {
-                    name: 'Union Ads',
+                    name: '테스트2',
                     type: 'line',
                     stack: 'Total',
                     data: num1
                 },
                 {
-                    name: 'Video Ads',
+                    name: '테스트3',
                     type: 'line',
                     stack: 'Total',
                     data: num2
                 },
                 {
-                    name: 'Direct',
+                    name: '테스트4',
                     type: 'line',
                     stack: 'Total',
                     data: num3
                 },
                 {
-                    name: 'Search Engine',
+                    name: '테스트5',
                     type: 'line',
                     stack: 'Total',
                     data: num4
+                },
+                {
+                    name: '테스트6',
+                    type: 'line',
+                    stack: 'Total',
+                    data: num5
                 }
             ]
         };
@@ -153,7 +160,7 @@
 
 </script>
 <body>
-<div id="main" style="width: 400px;height:400px;">
+<div id="main" style="width: 800px;height:400px;">
 </div>
 
 

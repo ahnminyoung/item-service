@@ -25,11 +25,15 @@
             };
         }
 
+        var a = Math.random() * 21 - 10;
+        console.log("이건머지", a);
+
+
         var data = [];
-        var now = new Date(1997, 9, 3);
+        var now = new Date(2022, 1, 1);
         var oneDay = 24 * 3600 * 1000;
         var value = Math.random() * 1000;
-        console.log("전역변수 :: ", value);
+
         for (var i = 0; i < 10000; i++) {
             data.push(randomData());
         }
@@ -85,10 +89,117 @@
                     }
                 ]
             });
-        }, 0);
+        }, 1000);
 
         myChart.setOption(option);
     })
+
+
+
+
+
+
+    var myChart = echarts.init(document.getElementById('chart01'));
+
+    var tempData1 = new Array();
+    var tempData2 = new Array();
+    var tempData3 = new Array();
+    var tempData4 = new Array();
+    var tempData5 = new Array();
+    var tempData6 = new Array();
+    var tempXAxis = new Array();
+    for(var i = 1; i <= 10000; i++){
+        tempData1.push(Math.random()*100);
+        tempData2.push(Math.random()*100);
+        tempData3.push(Math.random()*100);
+        tempData4.push(Math.random()*100);
+        tempData5.push(Math.random()*100);
+        tempData6.push(Math.random()*100);
+        /* tempData1.push(i);
+        tempData2.push(i);
+        tempData3.push(i);
+        tempData4.push(i);
+        tempData5.push(i);
+        tempData6.push(i); */
+        tempXAxis.push('');
+    }
+
+    var option;
+
+    option = {
+        title: {
+            text: 'Stacked Line'
+        },
+        tooltip: {
+            trigger: 'axis'
+        },
+        legend: {
+            data: ['Test1', 'Test2', 'Test3', 'Test4', 'Test5', 'Test6']
+        },
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        toolbox: {
+            feature: {
+                saveAsImage: {}
+            }
+        },
+        xAxis: {
+            type: 'category',
+            boundaryGap: false,
+            data: tempXAxis
+        },
+        yAxis: {
+            type: 'value'
+        },
+        series: [
+            {
+                name: 'Test1',
+                type: 'line',
+                stack: 'Total',
+                data: tempData1
+            },
+            {
+                name: 'Test2',
+                type: 'line',
+                stack: 'Total',
+                data: tempData2
+            },
+            {
+                name: 'Test3',
+                type: 'line',
+                stack: 'Total',
+                data: tempData3
+            },
+            {
+                name: 'Test4',
+                type: 'line',
+                stack: 'Total',
+                data: tempData4
+            },
+            {
+                name: 'Test5',
+                type: 'line',
+                stack: 'Total',
+                data: tempData5
+            },
+            {
+                name: 'Test6',
+                type: 'line',
+                stack: 'Total',
+                data: tempData6
+            }
+        ]
+    };
+
+    myChart.setOption(option);
+
+
+
+
 
 
 
