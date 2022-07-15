@@ -50,9 +50,16 @@ public class testController {
         return mav;
     }
 
-    @GetMapping("chView")
-    public ModelAndView chView(){
-        ModelAndView mav = new ModelAndView("test/chView");
+    @GetMapping("echart")
+    public ModelAndView echart(){
+        ModelAndView mav = new ModelAndView("test/echart");
+
+        return mav;
+    }
+
+    @GetMapping("highchart")
+    public ModelAndView highchart(){
+        ModelAndView mav = new ModelAndView("test/highchart");
 
         return mav;
     }
