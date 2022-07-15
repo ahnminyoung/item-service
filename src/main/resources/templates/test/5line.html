@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>5라인정적챠트(밑에스크롤)</title>
+    <script type="text/javascript" th:src="@{/echart/echarts.min.js}"></script>
+    <script type="text/javascript" th:src="@{/echart1/echarts.js}"></script>
+    <script type="text/javascript" th:src="@{/jquery/jquery-3.6.0.min.js}"></script>
+</head>
+<script>
+
+    $(function(){
+        var num = [];
+
+        for(var i = 0; i < 10000; i++){
+            var randomNum = Math.floor(Math.random() * 9999) + 1;
+            num.push(randomNum);
+        }
+
+        var num1 = [];
+
+        for(var j = 0; j < 10000; j++){
+            var randomNum1 = Math.floor(Math.random() * 9999) + 1;
+            num1.push(randomNum1);
+        }
+
+        var num2 = [];
+
+        for(var k = 0; k < 10000; k++){
+            var randomNum2 = Math.floor(Math.random() * 9999) + 1;
+            num2.push(randomNum2);
+        }
+        var num3 = [];
+
+        for(var l = 0; l < 10000; l++){
+            var randomNum3 = Math.floor(Math.random() * 9999) + 1;
+            num3.push(randomNum3);
+        }
+        var num4 = [];
+
+        for(var m = 0; m < 10000; m++){
+            var randomNum4 = Math.floor(Math.random() * 9999) + 1;
+            num4.push(randomNum4);
+        }
+
+        var num5 = [];
+        for(var n = 0; n < 10000; n++){
+            var randomNum5 = Math.floor(Math.random() * 9999) + 1;
+            num5.push(randomNum5);
+        }
+
+        var num6 = [];
+        for(var o = 0; o < 15000; o++){
+            num6.push(o);
+        }
+
+        console.log("12", num);
+
+        // const count = 5e5
+        let time = +new Date();
+        const categoryData = [];
+        const valueData = [];
+        for (let i = 0; i < 15000; i++) {
+            categoryData.push(
+                echarts.format.formatTime('yyyy-MM-dd\nhh:mm:ss', time, false)
+            );
+        }
+        console.log("날짜", categoryData);
+
+        var chartDom = document.getElementById('main');
+        var myChart = echarts.init(chartDom);
+        var option;
+
+        option = {
+            title: {
+                text: 'Stacked Line'
+            },
+            tooltip: {
+                trigger: 'axis'
+            },
+            legend: {
+                data: ['Email', 'Union Ads', 'Video Ads', 'Direct', 'Search Engine']
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            dataZoom: [
+                {
+                    type: 'inside',
+                    start: 0,
+                    end: 0.1
+                },
+                {
+                    start: 0,
+                    end: 1
+                }
+            ],
+            toolbox: {
+                feature: {
+                    saveAsImage: {}
+                }
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                data: categoryData
+            },
+            yAxis: {
+                boundaryGap: true,
+                data: num6
+            },
+            series: [
+                {
+                    name: '테스트1',
+                    type: 'line',
+                    stack: 'Total',
+                    data: num
+                },
+                {
+                    name: '테스트2',
+                    type: 'line',
+                    stack: 'Total',
+                    data: num1
+                },
+                {
+                    name: '테스트3',
+                    type: 'line',
+                    stack: 'Total',
+                    data: num2
+                },
+                {
+                    name: '테스트4',
+                    type: 'line',
+                    stack: 'Total',
+                    data: num3
+                },
+                {
+                    name: '테스트5',
+                    type: 'line',
+                    stack: 'Total',
+                    data: num4
+                },
+                {
+                    name: '테스트6',
+                    type: 'line',
+                    stack: 'Total',
+                    data: num5
+                }
+            ]
+        };
+
+        option && myChart.setOption(option);
+
+    })
+
+
+
+</script>
+<body>
+<div id="main" style="width: 800px;height:400px;">
+</div>
+
+
+
+</body>
+
+
+</html>

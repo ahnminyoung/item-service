@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<script type="text/javascript" th:src="@{/echart/echarts.min.js}"></script>
+<script type="text/javascript" th:src="@{/jquery/jquery-3.6.0.min.js}"></script>
+</head>
+<script>
+
+    $(function(){
+        var num = [];
+
+        for(var i = 0; i < 10000; i++){
+            var randomNum = Math.floor(Math.random() * 9999) + 1;
+            num.push(randomNum);
+            console.log("배열", randomNum);
+        }
+        //
+        // for (var j in num) {
+        //     if (randomNum == num[j]) {
+        //         randomNum = Math.floor(Math.random() * 9999) + 1;
+        //     }
+        // }
+
+        console.log("12", num);
+
+        var chartDom = document.getElementById('echartView');
+        var myChart = echarts.init(chartDom);
+        var option;
+
+        option = {
+            dataZoom:[
+                {
+                    type: 'inside'
+                },
+                {
+                    type: 'slider'
+                }
+            ],
+            xAxis: {
+                type: 'category',
+                data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+            },
+            yAxis: {
+                type: 'value'
+            },
+            series: [
+                {
+                    data: [820, 932, 901, 934, 1290, 1330, 1320],
+                    type: 'line',
+                    smooth: true
+                }
+            ]
+        };
+
+        option && myChart.setOption(option);
+    })
+
+
+
+</script>
+<body>
+<div id="echartView" style="width: 600px;height:400px;">
+</div>
+
+
+
+</body>
+
+
+</html>
